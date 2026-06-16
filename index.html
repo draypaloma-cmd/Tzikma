@@ -6,72 +6,43 @@
 <meta name="theme-color" content="#7c3aed">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>P&I Budget</title>
+<title>Tzikma</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{
-  --purple:#7c3aed;
-  --purple-light:#a855f7;
-  --purple-dark:#5b21b6;
-  --paloma:#f472b6;
-  --paloma-dim:#fce7f3;
-  --paloma-accent:#be185d;
-  --izik:#60a5fa;
-  --izik-dim:#dbeafe;
-  --izik-accent:#1d4ed8;
-  --both:#fbbf24;
-  --both-dim:#fef3c7;
-  --both-accent:#b45309;
-  --green:#10b981;
-  --green-dim:#d1fae5;
-  --bg:#f5f3ff;
-  --white:#ffffff;
-  --text:#1e1b4b;
-  --muted:#6b7280;
-  --border:#e5e7eb;
-  --radius:20px;
-  --radius-sm:12px;
-  --header-h:200px;
+  --purple:#7c3aed;--purple-light:#a855f7;--purple-dark:#5b21b6;
+  --paloma:#f472b6;--paloma-dim:#fce7f3;--paloma-accent:#be185d;
+  --izik:#60a5fa;--izik-dim:#dbeafe;--izik-accent:#1d4ed8;
+  --both:#fbbf24;--both-dim:#fef3c7;--both-accent:#b45309;
+  --green:#10b981;--green-dim:#d1fae5;
+  --bg:#f5f3ff;--white:#fff;--text:#1e1b4b;--muted:#6b7280;--border:#e5e7eb;
+  --radius:20px;--radius-sm:12px;
 }
 html,body{height:100%;background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:15px;overflow:hidden}
 #app{display:flex;flex-direction:column;height:100vh;height:100dvh;background:var(--bg)}
-
-/* HEADER */
 .header{background:linear-gradient(160deg,#6d28d9 0%,#7c3aed 50%,#9333ea 100%);padding:env(safe-area-inset-top,12px) 20px 0;flex-shrink:0}
 .status-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0 8px}
 .status-time{font-size:13px;font-weight:600;color:#fff}
 .status-icons{font-size:11px;color:rgba(255,255,255,0.8)}
 .logo{font-size:18px;font-weight:700;color:#fff;letter-spacing:-0.3px}
 .logo span{color:var(--paloma)}
-
-/* TAB PILLS */
 .tab-pills{display:flex;gap:0;background:rgba(255,255,255,0.15);border-radius:30px;padding:3px;margin:10px 0 0}
 .tab-pill{flex:1;text-align:center;padding:7px 4px;border-radius:26px;font-size:11px;font-weight:600;color:rgba(255,255,255,0.7);cursor:pointer;letter-spacing:0.05em;text-transform:uppercase;transition:all 0.2s;border:none;background:none;font-family:'Inter',sans-serif}
 .tab-pill.active{background:#fff;color:var(--purple);box-shadow:0 2px 8px rgba(0,0,0,0.15)}
-
-/* MONTH NAV */
 .month-nav{display:flex;align-items:center;justify-content:center;gap:16px;padding:14px 0 10px;color:#fff}
 .month-arrow{background:rgba(255,255,255,0.2);border:none;color:#fff;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif}
 .month-arrow:active{background:rgba(255,255,255,0.35)}
 .month-name{font-size:16px;font-weight:600;text-align:center}
 .month-sub{font-size:10px;color:rgba(255,255,255,0.6);text-align:center;margin-top:1px}
-
-/* SCROLL BODY */
 .body{flex:1;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;padding:0 0 84px}
 .body::-webkit-scrollbar{display:none}
-
-/* HERO CARD */
-.hero-card{background:#fff;border-radius:var(--radius) var(--radius) 0 0;margin:0;padding:20px 20px 0;position:relative}
-
-/* DONUT */
+.hero-card{background:#fff;border-radius:var(--radius) var(--radius) 0 0;margin:0;padding:20px 20px 0}
 .donut-wrap{display:flex;justify-content:center;align-items:center;padding:10px 0 6px;position:relative}
 .donut-center{position:absolute;text-align:center;pointer-events:none}
 .donut-icon{width:40px;height:40px;border-radius:50%;background:var(--purple);display:flex;align-items:center;justify-content:center;margin:0 auto 4px;font-size:18px}
 .donut-amount{font-size:24px;font-weight:700;color:var(--text);letter-spacing:-0.5px}
 .donut-label{font-size:11px;color:var(--muted);font-weight:500;text-transform:uppercase;letter-spacing:0.04em}
-
-/* STAT BAR */
 .stat-bar{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border-top:1px solid var(--border);margin-top:8px}
 .stat-item{padding:14px 8px;text-align:center;position:relative}
 .stat-item+.stat-item::before{content:'';position:absolute;left:0;top:20%;bottom:20%;width:1px;background:var(--border)}
@@ -79,38 +50,28 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'Inter'
 .stat-bar-fill{width:22px;border-radius:5px 5px 0 0;min-height:4px;transition:height 0.3s}
 .stat-num{font-size:13px;font-weight:700;color:var(--text)}
 .stat-lbl{font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-top:1px;font-weight:500}
-
-/* SECTION CARDS */
 .section-pad{padding:16px 16px 0}
-.card{background:#fff;border-radius:var(--radius);padding:16px;margin-bottom:12px;border:none;box-shadow:0 1px 3px rgba(0,0,0,0.06)}
-
-/* CATEGORY ROW */
+.card{background:#fff;border-radius:var(--radius);padding:16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,0.06)}
 .cat-section-title{font-size:14px;font-weight:700;color:var(--text);margin:16px 16px 8px}
 .cat-row{display:flex;align-items:center;gap:12px;padding:11px 16px;background:#fff;border-bottom:1px solid #f3f4f6}
 .cat-row:last-child{border-bottom:none}
 .cat-icon{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
 .cat-name{flex:1;font-size:14px;font-weight:500;color:var(--text)}
-.cat-amount{font-size:14px;font-weight:600;color:var(--text)}
-.cat-who{font-size:10px;color:var(--muted);margin-top:1px}
-
-/* BUDGET BARS */
 .budget-item{padding:10px 0}
 .budget-item+.budget-item{border-top:1px solid #f3f4f6}
 .budget-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
 .budget-name{font-size:13px;font-weight:500;display:flex;align-items:center;gap:6px}
 .budget-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
-.budget-pct{font-size:12px;color:var(--muted)}
 .budget-right{font-size:13px;font-weight:600}
 .bprog-track{height:5px;background:#f3f4f6;border-radius:3px;overflow:hidden}
 .bprog-fill{height:100%;border-radius:3px;transition:width 0.4s}
-
-/* ADD FORM */
 .add-form-card{background:#fff;border-radius:var(--radius);padding:16px;margin:0 16px 12px;box-shadow:0 1px 3px rgba(0,0,0,0.06)}
 .form-title{font-size:15px;font-weight:700;margin-bottom:14px;color:var(--text)}
 .field{margin-bottom:11px}
 .field label{display:block;font-size:11px;color:var(--muted);margin-bottom:4px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em}
-.field input,.field select{width:100%;background:#f9fafb;border:1.5px solid var(--border);color:var(--text);font-family:'Inter',sans-serif;font-size:14px;padding:10px 12px;border-radius:var(--radius-sm);outline:none;-webkit-appearance:none}
-.field input:focus,.field select:focus{border-color:var(--purple)}
+.field input,.field select,.field textarea{width:100%;background:#f9fafb;border:1.5px solid var(--border);color:var(--text);font-family:'Inter',sans-serif;font-size:14px;padding:10px 12px;border-radius:var(--radius-sm);outline:none;-webkit-appearance:none}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--purple)}
+.field textarea{resize:none;height:56px;font-size:13px}
 .field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:32px}
 .field-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .type-toggle{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}
@@ -118,28 +79,31 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'Inter'
 .type-btn.tp{background:var(--paloma-dim);border-color:var(--paloma-accent);color:var(--paloma-accent)}
 .type-btn.ti{background:var(--izik-dim);border-color:var(--izik-accent);color:var(--izik-accent)}
 .type-btn.tb{background:var(--both-dim);border-color:var(--both-accent);color:var(--both-accent)}
+/* payment source toggle — 3 options */
+.src-toggle{display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px}
+.src-btn{background:#f9fafb;border:1.5px solid var(--border);color:var(--muted);font-family:'Inter',sans-serif;font-size:11px;font-weight:600;padding:8px 4px;border-radius:var(--radius-sm);cursor:pointer;text-align:center;line-height:1.3;transition:all 0.15s}
+.src-btn.active{background:#ede9fe;border-color:var(--purple);color:var(--purple)}
+.src-other-field{display:none;margin-top:6px}
+.src-other-field.visible{display:block}
 .add-btn{width:100%;background:var(--purple);color:#fff;border:none;font-family:'Inter',sans-serif;font-size:15px;font-weight:700;padding:14px;border-radius:var(--radius-sm);cursor:pointer;margin-top:6px;letter-spacing:0.01em}
 .add-btn:active{opacity:0.88}
-
-/* TX LIST */
 .tx{display:flex;align-items:center;gap:12px;padding:12px 16px;background:#fff;border-bottom:1px solid #f3f4f6}
 .tx:last-child{border-bottom:none}
 .tx-icon{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
 .tx-body{flex:1;min-width:0}
 .tx-name{font-size:14px;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.tx-meta{font-size:11px;color:var(--muted);margin-top:2px;display:flex;gap:5px;align-items:center}
+.tx-meta{font-size:11px;color:var(--muted);margin-top:2px;display:flex;gap:4px;align-items:center;flex-wrap:wrap}
 .who-badge{font-size:10px;font-weight:700;padding:2px 6px;border-radius:6px}
 .wb-p{background:var(--paloma-dim);color:var(--paloma-accent)}
 .wb-i{background:var(--izik-dim);color:var(--izik-accent)}
 .wb-both{background:var(--both-dim);color:var(--both-accent)}
 .sh-badge{font-size:10px;font-weight:600;padding:2px 6px;border-radius:6px;background:#f3f4f6;color:var(--muted)}
-.tx-right{text-align:right}
+.src-pill{font-size:10px;font-weight:600;padding:2px 7px;border-radius:6px;background:#ede9fe;color:var(--purple)}
+.tx-right{text-align:right;flex-shrink:0}
 .tx-amount{font-size:15px;font-weight:700;letter-spacing:-0.3px}
 .tx-date{font-size:10px;color:var(--muted);margin-top:2px}
-.del-btn{background:none;border:none;color:#d1d5db;cursor:pointer;font-size:14px;padding:4px;margin-left:4px}
+.del-btn{background:none;border:none;color:#d1d5db;cursor:pointer;font-size:14px;padding:4px;margin-left:2px;flex-shrink:0}
 .del-btn:active{color:#ef4444}
-
-/* SAVINGS */
 .sav-item{padding:12px 16px;background:#fff;border-bottom:1px solid #f3f4f6}
 .sav-item:last-child{border-bottom:none}
 .sav-head{display:flex;align-items:center;gap:10px;margin-bottom:8px}
@@ -150,29 +114,24 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'Inter'
 .sav-track{height:6px;background:#f3f4f6;border-radius:4px;overflow:hidden}
 .sav-fill{height:100%;border-radius:4px;transition:width 0.4s}
 .sav-pct{font-size:11px;font-weight:700;margin-top:4px}
-
-/* CHIPS */
 .chips-wrap{padding:12px 16px 4px;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
 .chips-wrap::-webkit-scrollbar{display:none}
-.chip{flex-shrink:0;background:#fff;border:1.5px solid var(--border);color:var(--muted);font-size:12px;font-weight:600;padding:6px 14px;border-radius:20px;cursor:pointer;transition:all 0.15s;font-family:'Inter',sans-serif}
+.chip{flex-shrink:0;background:#fff;border:1.5px solid var(--border);color:var(--muted);font-size:12px;font-weight:600;padding:6px 14px;border-radius:20px;cursor:pointer;font-family:'Inter',sans-serif}
 .chip.active{background:var(--purple);border-color:var(--purple);color:#fff}
-
-/* EMPTY */
 .empty{text-align:center;padding:40px 20px;color:#9ca3af;font-size:14px}
-
-/* BOTTOM NAV */
 .bottom-nav{position:fixed;bottom:0;left:0;right:0;height:68px;background:#fff;border-top:1px solid var(--border);display:flex;padding-bottom:env(safe-area-inset-bottom,0px);z-index:100;box-shadow:0 -2px 12px rgba(0,0,0,0.06)}
 .nav-btn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;cursor:pointer;color:#9ca3af;font-size:10px;font-weight:600;letter-spacing:0.03em;border:none;background:none;font-family:'Inter',sans-serif;padding-top:4px}
 .nav-btn.active{color:var(--purple)}
 .nav-ico{font-size:22px;line-height:1}
-
-/* MODAL */
 .modal-bg{position:fixed;inset:0;background:rgba(30,27,75,0.5);z-index:200;display:none;align-items:flex-end}
 .modal-bg.open{display:flex}
-.modal-sheet{background:#fff;border-radius:24px 24px 0 0;padding:20px;width:100%;border-top:none}
+.modal-sheet{background:#fff;border-radius:24px 24px 0 0;padding:20px;width:100%}
 .modal-handle{width:36px;height:4px;background:#e5e7eb;border-radius:2px;margin:0 auto 16px}
 .modal-title{font-size:16px;font-weight:700;margin-bottom:14px;color:var(--text)}
 .modal-close-btn{float:right;background:none;border:none;color:var(--muted);font-size:20px;cursor:pointer}
+.section-label{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;padding:4px 0 2px;margin-bottom:2px}
+.toast{position:fixed;bottom:84px;left:50%;transform:translateX(-50%) translateY(20px);background:#1e1b4b;color:#fff;font-size:13px;font-weight:600;padding:10px 20px;border-radius:20px;z-index:999;opacity:0;transition:all 0.25s;pointer-events:none;white-space:nowrap}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 </style>
 </head>
 <body>
@@ -200,72 +159,172 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'Inter'
 
   <div class="body" id="body">
 
-    <!-- OVERVIEW TAB -->
+    <!-- OVERVIEW -->
     <div id="tab-overview">
-      <div class="hero-card">
+
+      <!-- ONE ZERO BALANCE CARD -->
+      <div style="background:#fff;border-radius:var(--radius) var(--radius) 0 0;padding:16px 16px 0">
+
+        <div style="background:linear-gradient(135deg,#374151,#6b7280,#9ca3af);border-radius:16px;padding:16px;margin-bottom:14px;color:#fff">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+            <div>
+              <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;opacity:0.8;margin-bottom:4px">🏦 One Zero</div>
+              <div style="font-size:10px;opacity:0.6">Savings &amp; house account</div>
+            </div>
+            <button onclick="openOZModal()" style="background:rgba(255,255,255,0.2);border:none;color:#fff;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;padding:7px 14px;border-radius:20px;cursor:pointer">Update</button>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:10px">
+            <div style="background:rgba(255,255,255,0.12);border-radius:10px;padding:10px;text-align:center">
+              <div style="font-size:9px;opacity:0.7;margin-bottom:3px;text-transform:uppercase;letter-spacing:0.04em">Balance</div>
+              <div style="font-size:16px;font-weight:700" id="oz-balance-display">₪0</div>
+            </div>
+            <div style="background:rgba(255,255,255,0.12);border-radius:10px;padding:10px;text-align:center">
+              <div style="font-size:9px;opacity:0.7;margin-bottom:3px;text-transform:uppercase;letter-spacing:0.04em">Spent</div>
+              <div style="font-size:16px;font-weight:700" id="oz-spent-display">₪0</div>
+            </div>
+            <div style="background:rgba(255,255,255,0.12);border-radius:10px;padding:10px;text-align:center">
+              <div style="font-size:9px;opacity:0.7;margin-bottom:3px;text-transform:uppercase;letter-spacing:0.04em">Left</div>
+              <div style="font-size:16px;font-weight:700" id="oz-left-display">₪0</div>
+            </div>
+          </div>
+          <div style="background:rgba(255,255,255,0.08);border-radius:10px;padding:10px;margin-bottom:8px">
+            <div style="font-size:9px;opacity:0.6;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.04em">Contributions this month</div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+              <span style="font-size:12px;opacity:0.85">Paloma</span>
+              <div style="text-align:right">
+                <span style="font-size:13px;font-weight:700" id="oz-paloma-display">₪0</span>
+                <span style="font-size:10px;opacity:0.6;margin-left:5px" id="oz-paloma-desc-display"></span>
+              </div>
+            </div>
+            <div style="height:1px;background:rgba(255,255,255,0.1);margin:5px 0"></div>
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <span style="font-size:12px;opacity:0.85">Izik</span>
+              <div style="text-align:right">
+                <span style="font-size:13px;font-weight:700" id="oz-izik-display">₪0</span>
+                <span style="font-size:10px;opacity:0.6;margin-left:5px" id="oz-izik-desc-display"></span>
+              </div>
+            </div>
+          </div>
+          <div style="background:rgba(0,0,0,0.15);border-radius:8px;overflow:hidden;height:6px">
+            <div id="oz-progress-bar" style="height:100%;background:rgba(255,255,255,0.7);border-radius:8px;transition:width 0.4s;width:0%"></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:9px;opacity:0.6;margin-top:4px">
+            <span>0%</span><span id="oz-progress-label">spent</span><span>100%</span>
+          </div>
+        </div>
+
+        <!-- HOUSE BUDGET STRIP -->
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:14px">
+          <div style="background:#f5f3ff;border-radius:12px;padding:12px 8px;text-align:center">
+            <div style="font-size:9px;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:0.04em;margin-bottom:4px">Saved</div>
+            <div style="font-size:15px;font-weight:700;color:var(--purple)" id="stat-oz">₪0</div>
+          </div>
+          <div style="background:#fdf2f8;border-radius:12px;padding:12px 8px;text-align:center">
+            <div style="font-size:9px;font-weight:700;color:var(--paloma-accent);text-transform:uppercase;letter-spacing:0.04em;margin-bottom:4px">House exp.</div>
+            <div style="font-size:15px;font-weight:700;color:var(--paloma-accent)" id="stat-house-spent">₪0</div>
+          </div>
+          <div style="background:#f0fdf4;border-radius:12px;padding:12px 8px;text-align:center">
+            <div style="font-size:9px;font-weight:700;color:#16a34a;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:4px">Remaining</div>
+            <div style="font-size:15px;font-weight:700;color:#16a34a" id="stat-house-balance">₪0</div>
+          </div>
+        </div>
+
+        <!-- WHO PAYS WHAT FOR THE HOUSE -->
+        <div style="background:#f9fafb;border-radius:14px;padding:14px;margin-bottom:14px">
+          <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:10px">🏠 House contributions this month</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+            <div style="background:var(--paloma-dim);border-radius:10px;padding:10px">
+              <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px">
+                <div style="width:22px;height:22px;border-radius:50%;background:var(--paloma-accent);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff">P</div>
+                <span style="font-size:12px;font-weight:700;color:var(--paloma-accent)">Paloma</span>
+              </div>
+              <div style="font-size:18px;font-weight:700;color:var(--paloma-accent)" id="p-house-amt">₪0</div>
+              <div style="font-size:10px;color:var(--paloma-accent);opacity:0.7;margin-top:2px" id="p-house-items"></div>
+            </div>
+            <div style="background:var(--izik-dim);border-radius:10px;padding:10px">
+              <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px">
+                <div style="width:22px;height:22px;border-radius:50%;background:var(--izik-accent);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff">I</div>
+                <span style="font-size:12px;font-weight:700;color:var(--izik-accent)">Izik</span>
+              </div>
+              <div style="font-size:18px;font-weight:700;color:var(--izik-accent)" id="i-house-amt">₪0</div>
+              <div style="font-size:10px;color:var(--izik-accent);opacity:0.7;margin-top:2px" id="i-house-items"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- DONUT + BUDGET BARS -->
+      <div style="background:#fff;margin-top:10px;padding:16px">
+        <div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:12px">Expenses by category</div>
         <div class="donut-wrap">
-          <canvas id="donutChart" width="220" height="220" role="img" aria-label="Expense donut chart by category"></canvas>
+          <canvas id="donutChart" width="200" height="200" role="img" aria-label="Expense donut by category"></canvas>
           <div class="donut-center">
             <div class="donut-icon">💳</div>
-            <div class="donut-amount" id="donut-total">€0</div>
-            <div class="donut-label" id="donut-label">expenses</div>
+            <div class="donut-amount" id="donut-total">₪0</div>
+            <div class="donut-label">total spent</div>
           </div>
         </div>
-        <div class="stat-bar">
-          <div class="stat-item">
-            <div class="stat-bar-chart"><div class="stat-bar-fill" id="bar-income" style="background:#10b981;height:40px"></div></div>
-            <div class="stat-num" id="stat-income">€0</div>
-            <div class="stat-lbl">Income</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-bar-chart"><div class="stat-bar-fill" id="bar-exp" style="background:var(--paloma);height:4px"></div></div>
-            <div class="stat-num" id="stat-expenses">€0</div>
-            <div class="stat-lbl">Expenses</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-bar-chart"><div class="stat-bar-fill" id="bar-left" style="background:var(--izik);height:4px"></div></div>
-            <div class="stat-num" id="stat-left">€0</div>
-            <div class="stat-lbl">Left</div>
-          </div>
-        </div>
-      </div>
-      <div style="padding:16px 16px 0">
-        <div class="card" id="budget-overview-card" style="padding:0 16px">
-          <div style="padding:14px 0 10px;font-size:14px;font-weight:700;color:var(--text);border-bottom:1px solid #f3f4f6">Budget overview</div>
-          <div id="budget-bars"></div>
-        </div>
+        <div id="budget-bars" style="margin-top:12px"></div>
       </div>
     </div>
 
-    <!-- SPENDING TAB -->
+    <!-- SPENDING / ADD -->
     <div id="tab-spending" style="display:none">
       <div class="add-form-card" style="margin:12px 16px">
         <div class="form-title">Add transaction</div>
-        <div class="field"><label>Description</label><input type="text" id="f-desc" placeholder="Groceries, rent…"></div>
+
+        <div class="field"><label>Description</label><input type="text" id="f-desc" placeholder="Supermarket, rent…"></div>
+
         <div class="field-row">
-          <div class="field"><label>Amount (€)</label><input type="number" inputmode="decimal" id="f-amount" placeholder="0"></div>
+          <div class="field"><label>Amount (₪)</label><input type="number" inputmode="decimal" id="f-amount" placeholder="0"></div>
           <div class="field"><label>Category</label>
             <select id="f-cat">
-              <option value="Housing">🏠 Housing</option>
+              <option value="Rent">🏠 Rent</option>
+              <option value="Supermarket">🛒 Supermarket</option>
               <option value="Food">🍔 Food</option>
               <option value="Transport">🚗 Transport</option>
               <option value="Health">❤️ Health</option>
-              <option value="Childcare">👶 Childcare</option>
+              <option value="Ava">👧🏻 Ava</option>
               <option value="Entertainment">🎬 Entertainment</option>
               <option value="Clothes">👗 Clothes</option>
+              <option value="Housing">🏠 Housing</option>
               <option value="Savings">💰 Savings</option>
               <option value="Income">💸 Income</option>
               <option value="Other">📦 Other</option>
             </select>
           </div>
         </div>
-        <div class="field"><label>Who</label>
+
+        <div class="field">
+          <label>Who pays?</label>
           <div class="type-toggle" id="who-toggle">
             <button class="type-btn tp" id="who-p" onclick="setWho('Paloma')">Paloma</button>
             <button class="type-btn" id="who-i" onclick="setWho('Izik')">Izik</button>
             <button class="type-btn" id="who-b" onclick="setWho('Both')">Both</button>
           </div>
         </div>
+
+        <div class="field">
+          <label>Paid from</label>
+          <div class="src-toggle" id="src-toggle">
+            <button class="src-btn active" id="src-personal" onclick="setSrc('personal')">👤 Personal<br>account</button>
+            <button class="src-btn" id="src-mutual" onclick="setSrc('mutual')">🏦 Mutual<br>(One Zero)</button>
+            <button class="src-btn" id="src-other" onclick="setSrc('other')">📝 Other</button>
+          </div>
+          <div class="src-other-field" id="src-other-field">
+            <input type="text" id="src-other-desc" placeholder="Describe the account / method…">
+          </div>
+        </div>
+
+        <div class="field">
+          <label>For the house?</label>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
+            <button class="src-btn active" id="house-yes" onclick="setHouse(true)">🏠 Yes, house expense</button>
+            <button class="src-btn" id="house-no" onclick="setHouse(false)">👤 No, personal</button>
+          </div>
+        </div>
+
         <div class="field-row">
           <div class="field"><label>Type</label>
             <select id="f-type">
@@ -275,13 +334,14 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'Inter'
           </div>
           <div class="field"><label>Date</label><input type="date" id="f-date"></div>
         </div>
+
         <button class="add-btn" onclick="addTx()">Add transaction</button>
       </div>
 
       <div id="spending-cats"></div>
     </div>
 
-    <!-- LIST TAB -->
+    <!-- LIST -->
     <div id="tab-list" style="display:none">
       <div class="chips-wrap" id="list-chips">
         <div class="chip active" onclick="filterList('all',this)">All</div>
@@ -290,12 +350,12 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'Inter'
         <div class="chip" onclick="filterList('Paloma',this)">Paloma</div>
         <div class="chip" onclick="filterList('Izik',this)">Izik</div>
         <div class="chip" onclick="filterList('Both',this)">Shared</div>
+        <div class="chip" onclick="filterList('house',this)">🏠 House</div>
       </div>
 
-      <!-- SAVINGS GOALS -->
       <div style="margin:8px 16px 0">
         <div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:8px">Savings goals</div>
-        <div class="card" style="padding:0 0 0 0;overflow:hidden">
+        <div class="card" style="padding:0;overflow:hidden">
           <div id="savings-list"><div class="empty">No savings goals yet</div></div>
         </div>
         <button class="add-btn" style="margin-top:8px;font-size:13px;padding:11px;background:#f3f4f6;color:var(--purple)" onclick="openSavModal()">+ Add savings goal</button>
@@ -303,19 +363,78 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'Inter'
 
       <div style="margin:16px 16px 0">
         <div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:8px">Transactions</div>
-        <div class="card" style="padding:0;overflow:hidden" id="list-card">
+        <div class="card" style="padding:0;overflow:hidden">
           <div id="tx-list-el"><div class="empty">No transactions yet</div></div>
         </div>
       </div>
     </div>
 
-  </div><!-- /body -->
+  </div>
 
+  <div class="toast" id="toast"></div>
   <nav class="bottom-nav">
     <button class="nav-btn active" onclick="switchTab('overview',null,this)"><span class="nav-ico">👁</span>Overview</button>
     <button class="nav-btn" onclick="switchTab('spending',null,this)"><span class="nav-ico">➕</span>Add</button>
     <button class="nav-btn" onclick="switchTab('list',null,this)"><span class="nav-ico">☰</span>List</button>
   </nav>
+</div>
+
+<!-- ONE ZERO MODAL -->
+<div class="modal-bg" id="oz-modal" onclick="closeOZModal(event)">
+  <div class="modal-sheet">
+    <div class="modal-handle"></div>
+    <button class="modal-close-btn" onclick="closeOZModalDirect()">✕</button>
+    <div class="modal-title">🏦 One Zero account</div>
+    <div class="field"><label>Current account balance (₪)</label><input type="number" inputmode="decimal" id="oz-balance-input" placeholder="e.g. 15000"></div>
+    <div class="field"><label>Spent from One Zero this month (₪)</label><input type="number" inputmode="decimal" id="oz-spent-input" placeholder="e.g. 3200"></div>
+    <div style="font-size:12px;font-weight:700;color:var(--muted);margin:4px 0 10px;text-transform:uppercase;letter-spacing:0.04em">Paloma's savings</div>
+    <div class="field-row">
+      <div class="field"><label>Amount (₪)</label><input type="number" inputmode="decimal" id="oz-paloma-amt" placeholder="e.g. 8000"></div>
+      <div class="field"><label>Description</label><input type="text" id="oz-paloma-desc" placeholder="e.g. Rent"></div>
+    </div>
+    <div style="font-size:12px;font-weight:700;color:var(--muted);margin:4px 0 10px;text-transform:uppercase;letter-spacing:0.04em">Izik's savings</div>
+    <div class="field-row">
+      <div class="field"><label>Amount (₪)</label><input type="number" inputmode="decimal" id="oz-izik-amt" placeholder="e.g. 7500"></div>
+      <div class="field"><label>Description</label><input type="text" id="oz-izik-desc" placeholder="e.g. Savings"></div>
+    </div>
+    <button class="add-btn" onclick="saveOZ()">Save</button>
+  </div>
+</div>
+
+<!-- EDIT TRANSACTION MODAL -->
+<div class="modal-bg" id="edit-modal" onclick="closeEditModal(event)">
+  <div class="modal-sheet">
+    <div class="modal-handle"></div>
+    <button class="modal-close-btn" onclick="closeEditModalDirect()">✕</button>
+    <div class="modal-title">Edit transaction</div>
+    <div class="field"><label>Description</label><input type="text" id="edit-desc" placeholder="Description"></div>
+    <div class="field"><label>Amount (₪)</label><input type="number" inputmode="decimal" id="edit-amount" placeholder="0"></div>
+    <div class="field"><label>Category</label>
+      <select id="edit-cat">
+        <option value="Rent">🏠 Rent</option>
+        <option value="Supermarket">🛒 Supermarket</option>
+        <option value="Food">🍔 Food</option>
+        <option value="Transport">🚗 Transport</option>
+        <option value="Health">❤️ Health</option>
+        <option value="Ava">👧🏻 Ava</option>
+        <option value="Entertainment">🎬 Entertainment</option>
+        <option value="Clothes">👗 Clothes</option>
+        <option value="Housing">🏠 Housing</option>
+        <option value="Savings">💰 Savings</option>
+        <option value="Income">💸 Income</option>
+        <option value="Other">📦 Other</option>
+      </select>
+    </div>
+    <div class="field"><label>Who pays?</label>
+      <div class="type-toggle">
+        <button class="type-btn tp" id="edit-who-p" onclick="setEditWho('Paloma')">Paloma</button>
+        <button class="type-btn" id="edit-who-i" onclick="setEditWho('Izik')">Izik</button>
+        <button class="type-btn" id="edit-who-b" onclick="setEditWho('Both')">Both</button>
+      </div>
+    </div>
+    <div class="field"><label>Date</label><input type="date" id="edit-date"></div>
+    <button class="add-btn" onclick="saveEditTx()">Save changes</button>
+  </div>
 </div>
 
 <!-- SAVINGS MODAL -->
@@ -326,8 +445,8 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'Inter'
     <div class="modal-title" id="sav-modal-title">Add savings goal</div>
     <div class="field"><label>Goal name</label><input type="text" id="sav-name" placeholder="Japan trip, emergency fund…"></div>
     <div class="field-row">
-      <div class="field"><label>Target (€)</label><input type="number" inputmode="decimal" id="sav-target" placeholder="5000"></div>
-      <div class="field"><label>Current (€)</label><input type="number" inputmode="decimal" id="sav-current" placeholder="0"></div>
+      <div class="field"><label>Target (₪)</label><input type="number" inputmode="decimal" id="sav-target" placeholder="5000"></div>
+      <div class="field"><label>Current (₪)</label><input type="number" inputmode="decimal" id="sav-current" placeholder="0"></div>
     </div>
     <div class="field"><label>Owner</label>
       <div class="type-toggle">
@@ -344,9 +463,12 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'Inter'
 <script>
 let txs = JSON.parse(localStorage.getItem('pi2_txs')||'[]');
 let savings = JSON.parse(localStorage.getItem('pi2_savings')||'[]');
+let oneZero = JSON.parse(localStorage.getItem('pi2_oz')||'{"balance":0,"paloma":0,"pDesc":"","izik":0,"iDesc":""}');
 let listFilter = 'all';
 let selWho = 'Paloma';
 let selSavWho = 'Paloma';
+let selSrc = 'personal';
+let selHouse = true;
 let editSavId = null;
 let currentMonth = new Date().getMonth();
 let currentYear = new Date().getFullYear();
@@ -355,24 +477,76 @@ let donutChart = null;
 const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 
 const CAT_CONFIG = {
-  'Housing':   {icon:'🏠', color:'#7c3aed'},
-  'Food':      {icon:'🍔', color:'#f97316'},
-  'Transport': {icon:'🚗', color:'#3b82f6'},
-  'Health':    {icon:'❤️', color:'#ef4444'},
-  'Childcare': {icon:'👶', color:'#ec4899'},
+  'Rent':         {icon:'🏠', color:'#7c3aed'},
+  'Supermarket':  {icon:'🛒', color:'#16a34a'},
+  'Food':         {icon:'🍔', color:'#f97316'},
+  'Transport':    {icon:'🚗', color:'#3b82f6'},
+  'Health':       {icon:'❤️', color:'#ef4444'},
+  'Ava':          {icon:'👧🏻', color:'#f472b6'},
   'Entertainment':{icon:'🎬', color:'#8b5cf6'},
-  'Clothes':   {icon:'👗', color:'#a78bfa'},
-  'Savings':   {icon:'💰', color:'#10b981'},
-  'Income':    {icon:'💸', color:'#10b981'},
-  'Other':     {icon:'📦', color:'#6b7280'},
+  'Clothes':      {icon:'👗', color:'#a78bfa'},
+  'Housing':      {icon:'🏠', color:'#7c3aed'},
+  'Savings':      {icon:'💰', color:'#10b981'},
+  'Income':       {icon:'💸', color:'#10b981'},
+  'Other':        {icon:'📦', color:'#6b7280'},
+};
+
+const SRC_LABEL = {
+  personal: '👤 Personal',
+  mutual:   '🏦 One Zero',
+  other:    '📝 Other',
 };
 
 function persist(){
   localStorage.setItem('pi2_txs', JSON.stringify(txs));
   localStorage.setItem('pi2_savings', JSON.stringify(savings));
+  localStorage.setItem('pi2_oz', JSON.stringify(oneZero));
 }
 
-function fmt(n){return '€'+Math.round(Math.abs(n)).toLocaleString('fr-FR')}
+function openOZModal(){
+  document.getElementById('oz-balance-input').value = oneZero.balance||'';
+  document.getElementById('oz-spent-input').value = oneZero.spent||'';
+  document.getElementById('oz-paloma-amt').value = oneZero.paloma||'';
+  document.getElementById('oz-paloma-desc').value = oneZero.pDesc||'';
+  document.getElementById('oz-izik-amt').value = oneZero.izik||'';
+  document.getElementById('oz-izik-desc').value = oneZero.iDesc||'';
+  document.getElementById('oz-modal').classList.add('open');
+}
+function closeOZModal(e){if(e.target===document.getElementById('oz-modal')) closeOZModalDirect();}
+function closeOZModalDirect(){document.getElementById('oz-modal').classList.remove('open');}
+function saveOZ(){
+  oneZero.balance = parseFloat(document.getElementById('oz-balance-input').value)||0;
+  oneZero.spent = parseFloat(document.getElementById('oz-spent-input').value)||0;
+  oneZero.paloma = parseFloat(document.getElementById('oz-paloma-amt').value)||0;
+  oneZero.pDesc = document.getElementById('oz-paloma-desc').value.trim();
+  oneZero.izik = parseFloat(document.getElementById('oz-izik-amt').value)||0;
+  oneZero.iDesc = document.getElementById('oz-izik-desc').value.trim();
+  persist();
+  closeOZModalDirect();
+  showToast('One Zero updated ✓');
+  renderAll();
+}
+function renderOZ(){
+  const fmt2 = n => '₪'+Math.round(Math.abs(n)).toLocaleString('he-IL');
+  const bal = oneZero.balance||0;
+  const spent = oneZero.spent||0;
+  const left = bal - spent;
+  document.getElementById('oz-balance-display').textContent = fmt2(bal);
+  document.getElementById('oz-spent-display').textContent = fmt2(spent);
+  const leftEl = document.getElementById('oz-left-display');
+  leftEl.textContent = (left<0?'-':'')+fmt2(left);
+  leftEl.style.color = left>=0?'#fff':'#fca5a5';
+  document.getElementById('oz-paloma-display').textContent = fmt2(oneZero.paloma||0);
+  document.getElementById('oz-paloma-desc-display').textContent = oneZero.pDesc||'';
+  document.getElementById('oz-izik-display').textContent = fmt2(oneZero.izik||0);
+  document.getElementById('oz-izik-desc-display').textContent = oneZero.iDesc||'';
+  document.getElementById('stat-oz').textContent = fmt2(bal);
+  const pct = bal>0?Math.min(100,Math.round((spent/bal)*100)):0;
+  document.getElementById('oz-progress-bar').style.width = pct+'%';
+  document.getElementById('oz-progress-label').textContent = pct+'% spent';
+}
+
+function fmt(n){return '₪'+Math.round(Math.abs(n)).toLocaleString('he-IL')}
 function today(){return new Date().toISOString().split('T')[0]}
 
 document.getElementById('f-date').value = today();
@@ -409,12 +583,11 @@ function switchTab(tab, pillBtn, navBtn){
   if(navBtn){
     document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
     navBtn.classList.add('active');
-    const pill = document.querySelectorAll('.tab-pill')[['overview','spending','list'].indexOf(tab)];
-    document.querySelectorAll('.tab-pill').forEach(b=>b.classList.remove('active'));
-    if(pill) pill.classList.add('active');
+    const idx = ['overview','spending','list'].indexOf(tab);
+    document.querySelectorAll('.tab-pill').forEach((b,i)=>b.classList.toggle('active',i===idx));
   }
   document.getElementById('body').scrollTop = 0;
-  if(tab==='overview') setTimeout(renderDonut,60);
+  if(tab==='overview'){ setTimeout(renderDonut,80); }
 }
 
 function setWho(w){
@@ -424,11 +597,32 @@ function setWho(w){
   document.getElementById('who-b').className = 'type-btn'+(w==='Both'?' tb':'');
 }
 
+function setSrc(s){
+  selSrc = s;
+  ['personal','mutual','other'].forEach(id=>{
+    document.getElementById('src-'+id).className = 'src-btn'+(s===id?' active':'');
+  });
+  document.getElementById('src-other-field').className = 'src-other-field'+(s==='other'?' visible':'');
+}
+
+function setHouse(val){
+  selHouse = val;
+  document.getElementById('house-yes').className = 'src-btn'+(val?' active':'');
+  document.getElementById('house-no').className = 'src-btn'+(!val?' active':'');
+}
+
 function setSavWho(w){
   selSavWho = w;
   document.getElementById('sav-who-p').className = 'type-btn'+(w==='Paloma'?' tp':'');
   document.getElementById('sav-who-i').className = 'type-btn'+(w==='Izik'?' ti':'');
   document.getElementById('sav-who-b').className = 'type-btn'+(w==='Both'?' tb':'');
+}
+
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'), 2200);
 }
 
 function addTx(){
@@ -437,17 +631,62 @@ function addTx(){
   const cat = document.getElementById('f-cat').value;
   const type = document.getElementById('f-type').value;
   const date = document.getElementById('f-date').value||today();
-  if(!desc||!amt||isNaN(amt)) return;
-  txs.push({id:Date.now(),desc,amount:amt,cat,type,who:selWho,date});
+  const srcOther = document.getElementById('src-other-desc').value.trim();
+  const source = selSrc==='other' ? (srcOther||'Other') : selSrc;
+  if(!desc){ showToast('Please add a description'); return; }
+  if(!amt||isNaN(amt)||amt<=0){ showToast('Please enter a valid amount'); return; }
+  txs.push({id:Date.now(),desc,amount:amt,cat,type,who:selWho,date,source,forHouse:selHouse});
   persist();
   document.getElementById('f-desc').value='';
   document.getElementById('f-amount').value='';
+  document.getElementById('src-other-desc').value='';
+  const sign = type==='income'?'+':'-';
+  showToast(sign+fmt(amt)+' added ✓');
   renderAll();
 }
 
 function deleteTx(id){
   txs = txs.filter(t=>t.id!==id);
   persist();
+  renderAll();
+}
+
+let editTxId = null;
+let editTxWho = 'Paloma';
+
+function openEditTx(id){
+  const t = txs.find(x=>x.id===id);
+  if(!t) return;
+  editTxId = id;
+  document.getElementById('edit-desc').value = t.desc;
+  document.getElementById('edit-amount').value = t.amount;
+  document.getElementById('edit-cat').value = t.cat;
+  document.getElementById('edit-date').value = t.date;
+  setEditWho(t.who||'Paloma');
+  document.getElementById('edit-modal').classList.add('open');
+}
+function setEditWho(w){
+  editTxWho = w;
+  document.getElementById('edit-who-p').className = 'type-btn'+(w==='Paloma'?' tp':'');
+  document.getElementById('edit-who-i').className = 'type-btn'+(w==='Izik'?' ti':'');
+  document.getElementById('edit-who-b').className = 'type-btn'+(w==='Both'?' tb':'');
+}
+function closeEditModal(e){if(e.target===document.getElementById('edit-modal')) closeEditModalDirect();}
+function closeEditModalDirect(){document.getElementById('edit-modal').classList.remove('open');editTxId=null;}
+function saveEditTx(){
+  const t = txs.find(x=>x.id===editTxId);
+  if(!t) return;
+  const desc = document.getElementById('edit-desc').value.trim();
+  const amt = parseFloat(document.getElementById('edit-amount').value);
+  if(!desc||!amt||isNaN(amt)){ showToast('Check description and amount'); return; }
+  t.desc = desc;
+  t.amount = amt;
+  t.cat = document.getElementById('edit-cat').value;
+  t.date = document.getElementById('edit-date').value;
+  t.who = editTxWho;
+  persist();
+  closeEditModalDirect();
+  showToast('Transaction updated ✓');
   renderAll();
 }
 
@@ -484,36 +723,51 @@ function calcStats(){
   const mt = monthTxs();
   const inc = mt.filter(t=>t.type==='income').reduce((a,t)=>a+t.amount,0);
   const exp = mt.filter(t=>t.type==='expense').reduce((a,t)=>a+t.amount,0);
-  const byPerson = {Paloma:0,Izik:0,Both:0};
-  mt.filter(t=>t.type==='expense').forEach(t=>byPerson[t.who]=(byPerson[t.who]||0)+t.amount);
   const byCat = {};
-  mt.filter(t=>t.type==='expense').forEach(t=>{
-    byCat[t.cat]=(byCat[t.cat]||0)+t.amount;
-  });
-  return {inc,exp,left:inc-exp,byPerson,byCat,total:exp};
+  mt.filter(t=>t.type==='expense').forEach(t=>{byCat[t.cat]=(byCat[t.cat]||0)+t.amount;});
+  function pInc(who){return mt.filter(t=>t.type==='income'&&(t.who===who||t.who==='Both')).reduce((a,t)=>a+(t.who==='Both'?t.amount/2:t.amount),0);}
+  function pExp(who){return mt.filter(t=>t.type==='expense'&&(t.who===who||t.who==='Both')).reduce((a,t)=>a+(t.who==='Both'?t.amount/2:t.amount),0);}
+  return {
+    inc,exp,left:inc-exp,byCat,total:exp,
+    pI:pInc('Paloma'),pE:pExp('Paloma'),
+    iI:pInc('Izik'),iE:pExp('Izik'),
+  };
 }
 
 function renderDonut(){
   const s = calcStats();
   const cats = Object.entries(s.byCat).filter(([,v])=>v>0);
-  const data = cats.length ? cats.map(([,v])=>v) : [1];
-  const colors = cats.length ? cats.map(([k])=>(CAT_CONFIG[k]||CAT_CONFIG.Other).color) : ['#e5e7eb'];
+  const data = cats.length?cats.map(([,v])=>v):[1];
+  const colors = cats.length?cats.map(([k])=>(CAT_CONFIG[k]||CAT_CONFIG.Other).color):['#e5e7eb'];
   if(donutChart) donutChart.destroy();
-  const ctx = document.getElementById('donutChart').getContext('2d');
+  const canvas = document.getElementById('donutChart');
+  canvas.width = 220; canvas.height = 220;
+  const ctx = canvas.getContext('2d');
   donutChart = new Chart(ctx,{
     type:'doughnut',
     data:{labels:cats.length?cats.map(([k])=>k):['Empty'],datasets:[{data,backgroundColor:colors,borderWidth:cats.length?3:0,borderColor:'#fff',hoverOffset:4}]},
-    options:{responsive:false,plugins:{legend:{display:false},tooltip:{enabled:cats.length>0}},cutout:'70%'}
+    options:{responsive:false,animation:{duration:400},plugins:{legend:{display:false},tooltip:{enabled:cats.length>0}},cutout:'70%'}
   });
   document.getElementById('donut-total').textContent = fmt(s.total);
-  document.getElementById('donut-label').textContent = 'expenses';
-  const maxVal = Math.max(s.inc,s.exp,s.left,1);
-  document.getElementById('stat-income').textContent = fmt(s.inc);
-  document.getElementById('stat-expenses').textContent = fmt(s.exp);
-  document.getElementById('stat-left').textContent = (s.left<0?'-':'')+fmt(s.left);
-  document.getElementById('bar-income').style.height = Math.max(4,Math.round((s.inc/maxVal)*40))+'px';
-  document.getElementById('bar-exp').style.height = Math.max(4,Math.round((s.exp/maxVal)*40))+'px';
-  document.getElementById('bar-left').style.height = Math.max(4,Math.round((Math.max(0,s.left)/maxVal)*40))+'px';
+  // house spent = all expenses tagged forHouse + Both
+  const mt = monthTxs();
+  const houseExp = mt.filter(t=>t.type==='expense'&&(t.forHouse||t.who==='Both')).reduce((a,t)=>a+t.amount,0);
+  document.getElementById('stat-house-spent').textContent = fmt(houseExp);
+  const houseBal = oneZero.balance - houseExp;
+  const hbalEl = document.getElementById('stat-house-balance');
+  hbalEl.textContent = (houseBal<0?'-':'')+fmt(houseBal);
+  hbalEl.style.color = houseBal>=0?'#16a34a':'#ef4444';
+  // who pays what for house
+  const pHouse = mt.filter(t=>t.type==='expense'&&(t.forHouse||t.who==='Both')&&(t.who==='Paloma'||t.who==='Both')).reduce((a,t)=>a+(t.who==='Both'?t.amount/2:t.amount),0);
+  const iHouse = mt.filter(t=>t.type==='expense'&&(t.forHouse||t.who==='Both')&&(t.who==='Izik'||t.who==='Both')).reduce((a,t)=>a+(t.who==='Both'?t.amount/2:t.amount),0);
+  document.getElementById('p-house-amt').textContent = fmt(pHouse);
+  document.getElementById('i-house-amt').textContent = fmt(iHouse);
+  // top items per person for house
+  const pItems = mt.filter(t=>t.type==='expense'&&(t.forHouse||t.who==='Both')&&(t.who==='Paloma'||t.who==='Both')).sort((a,b)=>b.amount-a.amount).slice(0,2).map(t=>t.desc).join(', ');
+  const iItems = mt.filter(t=>t.type==='expense'&&(t.forHouse||t.who==='Both')&&(t.who==='Izik'||t.who==='Both')).sort((a,b)=>b.amount-a.amount).slice(0,2).map(t=>t.desc).join(', ');
+  document.getElementById('p-house-items').textContent = pItems;
+  document.getElementById('i-house-items').textContent = iItems;
+  renderOZ();
   renderBudgetBars(s);
 }
 
@@ -536,12 +790,9 @@ function renderBudgetBars(s){
 }
 
 function renderSpending(){
-  const mt = monthTxs().filter(t=>t.type==='expense');
+  const mt = monthTxs();
   const bySection = {};
-  mt.forEach(t=>{
-    if(!bySection[t.cat]) bySection[t.cat]=[];
-    bySection[t.cat].push(t);
-  });
+  mt.forEach(t=>{if(!bySection[t.cat]) bySection[t.cat]=[];bySection[t.cat].push(t);});
   const el = document.getElementById('spending-cats');
   if(!Object.keys(bySection).length){el.innerHTML='<div class="empty">No expenses this month</div>';return;}
   el.innerHTML = Object.entries(bySection).map(([cat,items])=>{
@@ -549,17 +800,22 @@ function renderSpending(){
     const rows = items.map(t=>{
       const wb = t.who==='Paloma'?'wb-p':t.who==='Izik'?'wb-i':'wb-both';
       const amtColor = t.who==='Paloma'?'var(--paloma-accent)':t.who==='Izik'?'var(--izik-accent)':'var(--both-accent)';
+      const srcLbl = t.source?SRC_LABEL[t.source]||('📝 '+t.source):'';
+      const houseLbl = t.forHouse!==undefined?(t.forHouse?'🏠':'👤'):'';
       return `<div class="cat-row">
         <div class="cat-icon" style="background:${cfg.color}22">${cfg.icon}</div>
         <div style="flex:1;min-width:0">
           <div class="cat-name">${t.desc}</div>
-          <div style="display:flex;gap:4px;margin-top:2px">
+          <div style="display:flex;gap:4px;margin-top:2px;flex-wrap:wrap">
             <span class="who-badge ${wb}">${t.who}</span>
+            ${srcLbl?`<span class="src-pill">${srcLbl}</span>`:''}
+            ${houseLbl?`<span class="sh-badge">${houseLbl}</span>`:''}
             <span class="sh-badge">${t.date}</span>
           </div>
         </div>
         <div style="text-align:right">
           <div style="font-size:14px;font-weight:700;color:${amtColor}">${fmt(t.amount)}</div>
+          <button class="del-btn" onclick="openEditTx(${t.id})" aria-label="Edit" style="color:#9ca3af;font-size:13px">✏️</button>
           <button class="del-btn" onclick="deleteTx(${t.id})" aria-label="Delete">✕</button>
         </div>
       </div>`;
@@ -583,6 +839,7 @@ function renderList(){
   else if(listFilter==='Paloma') mt=mt.filter(t=>t.who==='Paloma');
   else if(listFilter==='Izik') mt=mt.filter(t=>t.who==='Izik');
   else if(listFilter==='Both') mt=mt.filter(t=>t.who==='Both');
+  else if(listFilter==='house') mt=mt.filter(t=>t.forHouse===true);
   mt.sort((a,b)=>b.date.localeCompare(a.date));
   const el = document.getElementById('tx-list-el');
   if(!mt.length){el.innerHTML='<div class="empty">No transactions here</div>';return;}
@@ -591,16 +848,24 @@ function renderList(){
     const wb = t.who==='Paloma'?'wb-p':t.who==='Izik'?'wb-i':'wb-both';
     const amtColor = t.type==='income'?'#10b981':t.who==='Paloma'?'var(--paloma-accent)':t.who==='Izik'?'var(--izik-accent)':'var(--both-accent)';
     const sign = t.type==='income'?'+':'-';
+    const srcLbl = t.source?SRC_LABEL[t.source]||('📝 '+t.source):'';
+    const houseLbl = t.forHouse!==undefined?(t.forHouse?'🏠':'👤'):'';
     return `<div class="tx">
       <div class="tx-icon" style="background:${cfg.color}22">${cfg.icon}</div>
       <div class="tx-body">
         <div class="tx-name">${t.desc}</div>
-        <div class="tx-meta"><span class="who-badge ${wb}">${t.who}</span><span class="sh-badge">${t.cat}</span></div>
+        <div class="tx-meta">
+          <span class="who-badge ${wb}">${t.who}</span>
+          ${srcLbl?`<span class="src-pill">${srcLbl}</span>`:''}
+          ${houseLbl?`<span class="sh-badge">${houseLbl}</span>`:''}
+          <span class="sh-badge">${t.cat}</span>
+        </div>
       </div>
       <div class="tx-right">
         <div class="tx-amount" style="color:${amtColor}">${sign}${fmt(t.amount)}</div>
         <div class="tx-date">${t.date}</div>
       </div>
+      <button class="del-btn" onclick="openEditTx(${t.id})" aria-label="Edit" style="color:#9ca3af;font-size:13px">✏️</button>
       <button class="del-btn" onclick="deleteTx(${t.id})" aria-label="Delete">✕</button>
     </div>`;
   }).join('');
@@ -633,6 +898,7 @@ function renderSavings(){
 function renderAll(){
   updateMonthLabel();
   renderDonut();
+  renderOZ();
   renderSpending();
   renderList();
   renderSavings();
